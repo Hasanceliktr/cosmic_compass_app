@@ -1,10 +1,14 @@
-import 'package:cosmic_compass_app/features/splash/splash_screen.dart'; // YENİ IMPORT
 import 'package:flutter/material.dart';
-
-import 'api/common/theme/app_theme.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'auth_wrapper.dart';
+import 'common/theme/app_theme.dart';
 
 void main() {
-  runApp(const CosmicCompassApp());
+  runApp(
+    const ProviderScope(
+      child: CosmicCompassApp(),
+    ),
+  );
 }
 
 class CosmicCompassApp extends StatelessWidget {
@@ -16,7 +20,7 @@ class CosmicCompassApp extends StatelessWidget {
       title: 'Cosmic Compass',
       theme: AppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
-      home: const SplashScreen(),
+      home: const AuthWrapper(),
     );
   }
 }
